@@ -18,29 +18,27 @@ class ViewPost extends StatelessWidget {
           "View Posts",
         ),
       ),
-      body: Center(
-        child: Obx(() {
-          if (homeController.isPostDetailLoading.value) {
-            return CircularProgressIndicator();
-          }
-          if (homeController.postDetailsModel.value.id == null) {
-            return EmptyWidget();
-          }
-          final postModel = homeController.postDetailsModel.value;
-          return Card(
-            child: ListTile(
-              title: Text(
-                postModel.title.toString(),
-                style: AppTextStyle.blackF14W500TextStyle,
-              ),
-              subtitle: Text(
-                postModel.body.toString(),
-                style: AppTextStyle.blackF12W400TextStyle,
-              ),
+      body: Obx(() {
+        if (homeController.isPostDetailLoading.value) {
+          return Center(child: CircularProgressIndicator());
+        }
+        if (homeController.postDetailsModel.value.id == null) {
+          return Center(child: EmptyWidget());
+        }
+        final postModel = homeController.postDetailsModel.value;
+        return Card(
+          child: ListTile(
+            title: Text(
+              postModel.title.toString(),
+              style: AppTextStyle.blackF14W500TextStyle,
             ),
-          );
-        }),
-      ),
+            subtitle: Text(
+              postModel.body.toString(),
+              style: AppTextStyle.blackF12W400TextStyle,
+            ),
+          ),
+        );
+      }),
     );
   }
 }

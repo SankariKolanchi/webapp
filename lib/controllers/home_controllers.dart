@@ -23,7 +23,7 @@ class HomeController extends GetxController {
     final response = await _apiRequest.request(ApiConstants.posts, "get");
     isLoading.value = false;
     if (response != null) {
-
+print(response.runtimeType);
       postmodel.value = postModelFromJson(response);
     }
   }

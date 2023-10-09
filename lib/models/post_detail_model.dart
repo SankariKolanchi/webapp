@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-PostDetailsModel postDetailsModelFromJson(String str) => PostDetailsModel.fromJson(json.decode(str));
+PostDetailsModel postDetailsModelFromJson(Map<String, dynamic> str) => PostDetailsModel.fromJson((str));
 
 String postDetailsModelToJson(PostDetailsModel data) => json.encode(data.toJson());
 
